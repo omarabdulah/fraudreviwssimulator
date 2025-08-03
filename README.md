@@ -40,7 +40,7 @@ FraudReviwsSimulator is a sophisticated Python toolkit designed for simulating e
 ### 1. Basic Simulation
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/fraudreviwssimulator.git
+git clone https://github.com/omarabdulah/fraudreviwssimulator.git
 cd fraudreviwssimulator
 
 # Install dependencies
