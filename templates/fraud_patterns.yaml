@@ -1,0 +1,75 @@
+# Fraud pattern templates
+patterns:
+  card_testing:
+    description: "Rapid testing of stolen card credentials"
+    indicators:
+      velocity: "high"
+      order_value: "low"
+      items: ["digital_goods", "gift_cards"]
+      payment_types: ["credit_card"]
+      behavior: "rapid_failures"
+    simulation_params:
+      orders_per_hour: 10-50
+      success_rate: 0.1-0.3
+      value_range: 1-100
+      card_bins: ["high_risk_bins"]
+      ip_rotation: "high"
+
+  account_takeover:
+    description: "Compromised legitimate accounts"
+    indicators:
+      velocity: "medium"
+      order_value: "high"
+      items: ["electronics", "luxury_goods"]
+      payment_types: ["saved_payment"]
+      behavior: "changed_credentials"
+    simulation_params:
+      orders_per_hour: 1-5
+      success_rate: 0.6-0.9
+      value_range: 200-2000
+      shipping: "express"
+      device_change: true
+
+  triangulation:
+    description: "Intermediary fraud scheme"
+    indicators:
+      velocity: "medium"
+      order_value: "medium"
+      items: ["high_demand"]
+      payment_types: ["paypal"]
+      behavior: "dropshipping"
+    simulation_params:
+      orders_per_hour: 5-15
+      success_rate: 0.4-0.7
+      value_range: 100-500
+      shipping_mismatch: true
+      payer_merchant_mismatch: true
+
+  refund_abuse:
+    description: "Exploiting return policies"
+    indicators:
+      velocity: "low"
+      order_value: "high"
+      items: ["apparel", "returnable"]
+      payment_types: ["credit_card", "paypal"]
+      behavior: "high_return_rate"
+    simulation_params:
+      orders_per_hour: 1-3
+      success_rate: 0.8-1.0
+      value_range: 150-1000
+      return_rate: 0.9
+      return_reasons: ["item_not_as_described", "defective"]
+
+  multi_account:
+    description: "Multiple accounts for abuse"
+    indicators:
+      velocity: "distributed"
+      order_value: "variable"
+      items: ["various"]
+      payment_types: ["various"]
+      behavior: "linked_identities"
+    simulation_params:
+      accounts_per_device: 3-10
+      shared_attributes: ["payment", "address", "device"]
+      value_range: 50-500
+      success_rate: 0.5-0.8

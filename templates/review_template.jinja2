@@ -1,0 +1,17 @@
+{% if suspiciousness == "low" %}
+I recently purchased the {{ product_name }} and have been using it for {{ days }} days now. 
+Overall, it's {{ random_opinion() }} product. 
+{% if rating >= 4 %}The {{ random_feature() }} is particularly impressive.{% endif %}
+{% if rating <= 3 %}I wish {{ random_improvement() }} was better.{% endif %}
+I would {{ "definitely" if rating >= 4 else "probably" }} recommend it to others.
+{% elif suspiciousness == "medium" %}
+{{ product_name }} is absolutely amazing! It completely changed how I {{ use_case }}.
+The quality is outstanding and it arrived quickly. 
+{{ "Worth every penny!" if rating == 5 else "Good value for money." }}
+5 stars without hesitation!
+{% else %}
+BEST {{ product_name.upper() }} EVER!!!!! 💯💯💯
+I've tried many brands but this is BY FAR THE GREATEST!!! 
+⭐⭐⭐⭐⭐ LIFE-CHANGING EXPERIENCE!!! ⭐⭐⭐⭐⭐
+{{ "BUY NOW BEFORE IT SELLS OUT!!" if urgent else "Don't hesitate!" }}
+{% endif %}
